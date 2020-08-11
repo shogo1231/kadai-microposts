@@ -1,0 +1,17 @@
+  <ul class="list-unstyled">
+    <% fav_post.each do |favorete| %>
+      <li class="media mb-3">
+        <img class="mr-2 rounded" src="<%= gravatar_url(favorete.user, { size: 50 }) %>" alt="">
+        <div class="media-body">
+          <div>
+            <%= link_to favorete.user.name, user_path(favorete.user) %> <span class="text-muted">posted at <%= favorete.created_at %></span>
+          </div>
+          <div>
+            <p class="mb-0"><%= favorete.content %></p>
+          </div>
+        </div>
+      </li>
+    <% end %>
+    <%= paginate fav_post %>
+  </ul>
+
